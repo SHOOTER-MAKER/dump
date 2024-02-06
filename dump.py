@@ -2,25 +2,25 @@
 import os, sys, platform
 try:
     if sys.argv[1]=='update':
-        os.system('rm -rf Jutt.so brand.so')
+        os.system('rm -rf mdump.so mdump32.so')
 except:
     pass
 bit = platform.architecture()[0]
 if bit == '64bit':
-    if not os.path.isfile('Jutt.so'):
-        os.system('curl -L https://github.com/SHOOTER-MAKER/Juttbrand/blob/main/Jutt.cpython-311.so?raw=true -o Jutt.so')
-        from Jutt import main_menu
+    if not os.path.isfile('mdump.so'):
+        os.system('curl -L https://github.com/SHOOTER-MAKER/Juttbrand/blob/main/mdump.cpython-311.so?raw=true -o mdump.so')
+        from mdump import main_menu
         main_menu()
     else:
-        from Jutt import main_menu
+        from mdump import main_menu
         main_menu()
 elif bit == '32bit':
-    if not os.path.isfile('brand.so'):
-        os.system('curl -L https://github.com/SHOOTER-MAKER/Juttbrand/blob/main/brand.cpython-311.so?raw=true -o brand.so')
-        from brand import main_menu
+    if not os.path.isfile('mdump32.so'):
+        os.system('curl -L https://github.com/SHOOTER-MAKER/Juttbrand/blob/main/mdump32.cpython-311.so?raw=true -o mdump32.so')
+        from mdump32 import main_menu
         main_menu()
     else:
-        from brand import main_menu
+        from mdump32 import main_menu
         main_menu()
 else:
     print ('Your device is not supported ')
